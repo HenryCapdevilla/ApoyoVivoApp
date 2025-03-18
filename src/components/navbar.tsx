@@ -3,7 +3,7 @@ import { Home, User, Info } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md fixed bottom-0 w-full flex justify-around py-3">
+    <nav className="bg-white shadow-md fixed bottom-0 w-full flex justify-around py-3 z-50">
       <Link to="/" className="flex flex-col items-center text-gray-600 hover:text-blue-500">
         <Home size={24} />
         <span className="text-xs">Inicio</span>
