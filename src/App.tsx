@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Emotions from "./pages/emotions";
 import MoodsNotes from "./pages/MoodsNotes";
+import TestComponent from "./pages/prueba";
 const App = () => {
   return (
     <ThemeProvider>
@@ -15,6 +16,7 @@ const App = () => {
           <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/prueba" element={<TestComponent />} />
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/login" element={<Login />} />
