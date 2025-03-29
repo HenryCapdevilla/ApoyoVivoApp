@@ -8,6 +8,10 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Emotions from "./pages/emotions";
 import MoodsNotes from "./pages/MoodsNotes";
+import SelfAwareness from "./pages/SelfAwareness";
+import StreakTracker from "./pages/StreakTracker";
+import EmotionJar from "./components/emotionJar";
+
 const App = () => {
   return (
     <ThemeProvider>
@@ -21,6 +25,9 @@ const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/emotions" element={<Emotions/>} />
               <Route path="/moods-notes" element={<MoodsNotes />} />
+              <Route path="/self-awareness" element={<SelfAwareness />} />
+              <Route path="/streak-tracker" element={<StreakTracker />} />
+              <Route path="/emotion-jar" element={<EmotionJar />} />
             </Routes>
       </Router>
     </ThemeProvider>
