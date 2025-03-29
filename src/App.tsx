@@ -12,6 +12,7 @@ import SelfAwareness from "./pages/SelfAwareness";
 import StreakTracker from "./pages/StreakTracker";
 import EmotionJar from "./components/emotionJar";
 
+import TestComponent from "./pages/prueba";
 const App = () => {
   return (
     <ThemeProvider>
@@ -19,6 +20,7 @@ const App = () => {
           <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/prueba" element={<TestComponent />} />
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/login" element={<Login />} />
