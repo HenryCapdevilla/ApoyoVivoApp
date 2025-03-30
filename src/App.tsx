@@ -11,7 +11,7 @@ import MoodsNotes from "./pages/MoodsNotes";
 import SelfAwareness from "./pages/SelfAwareness";
 import StreakTracker from "./pages/StreakTracker";
 import EmotionJar from "./components/emotionJar";
-
+import Lumi from "./pages/lumi";
 import TestComponent from "./pages/prueba";
 const App = () => {
   return (
@@ -30,6 +30,7 @@ const App = () => {
               <Route path="/self-awareness" element={<SelfAwareness />} />
               <Route path="/streak-tracker" element={<StreakTracker />} />
               <Route path="/emotion-jar" element={<EmotionJar />} />
+              <Route path="/lumi" element={<Lumi />} /> {/* 👈 Nueva ruta */}
             </Routes>
       </Router>
     </ThemeProvider>
