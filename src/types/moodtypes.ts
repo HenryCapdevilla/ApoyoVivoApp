@@ -1,9 +1,3 @@
-import AngrySVG from "../resources/Angry_Emoji.svg";
-import SadSVG from "../resources/Sad_Emoji.svg";
-import NeutralSVG from "../resources/Neutro_Emoji.svg";
-import HappySVG from "../resources/Happy_Emoji.svg";
-import VeryHappySVG from "../resources/Very_Happy_Emoji.svg";
-
 export enum Mood {
   Angry = "angry",
   Sad = "sad",
@@ -13,9 +7,9 @@ export enum Mood {
 }
 
 export const moods = [
-  { src: AngrySVG, value: Mood.Angry },
-  { src: SadSVG, value: Mood.Sad },
-  { src: NeutralSVG, value: Mood.Neutral },
-  { src: HappySVG, value: Mood.Happy },
-  { src: VeryHappySVG, value: Mood.VeryHappy },
+  { src: "/resources/Angry_Emoji.svg", value: Mood.Angry },
+  { src: "/resources/Sad_Emoji.svg", value: Mood.Sad },
+  { src: "/resources/Neutro_Emoji.svg", value: Mood.Neutral },
+  { src: "/resources/Happy_Emoji.svg", value: Mood.Happy },
+  { src: "/resources/Very_Happy_Emoji.svg", value: Mood.VeryHappy },
 ] as const;

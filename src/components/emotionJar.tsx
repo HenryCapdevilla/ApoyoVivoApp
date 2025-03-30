@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import BottleSVG from "../resources/Botellas.svg";
+const BottleSVG = "/resources/Botellas.svg";
 
 const mouthExpressions = [
   "M0,10 Q10,20 20,10", // 😀 Feliz

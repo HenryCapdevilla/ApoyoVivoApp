@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import FireGif from "../resources/fire-flame.gif";
+
+const FireGif = "/resources/fire-flame.gif";
 
 const FireCard: React.FC<{ streak: number; increaseStreak: () => void; isDisabled: boolean; timeLeft: number }> = ({
   streak,
