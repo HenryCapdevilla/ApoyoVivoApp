@@ -1,4 +1,8 @@
-// src/moodTypes.ts
+import AngrySVG from "../resources/Angry_Emoji.svg";
+import SadSVG from "../resources/Sad_Emoji.svg";
+import NeutralSVG from "../resources/Neutro_Emoji.svg";
+import HappySVG from "../resources/Happy_Emoji.svg";
+import VeryHappySVG from "../resources/Very_Happy_Emoji.svg";
 
 export enum Mood {
   Angry = "angry",
@@ -9,9 +13,9 @@ export enum Mood {
 }
 
 export const moods = [
-  { emoji: "😡", color: "bg-red-500", value: Mood.Angry },
-  { emoji: "😢", color: "bg-blue-500", value: Mood.Sad },
-  { emoji: "😐", color: "bg-pink-500", value: Mood.Neutral },
-  { emoji: "😊", color: "bg-green-500", value: Mood.Happy },
-  { emoji: "😁", color: "bg-yellow-500", value: Mood.VeryHappy },
-];
+  { src: AngrySVG, value: Mood.Angry },
+  { src: SadSVG, value: Mood.Sad },
+  { src: NeutralSVG, value: Mood.Neutral },
+  { src: HappySVG, value: Mood.Happy },
+  { src: VeryHappySVG, value: Mood.VeryHappy },
+] as const;

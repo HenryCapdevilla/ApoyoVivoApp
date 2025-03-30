@@ -15,7 +15,7 @@ const Home = () => {
     <div className={`min-h-screen pt-4 px-4 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
       <StreakTracker />
       {/* Contenedor de emociones */}
-      <EmotionJar />
+      <EmotionJar/>
 
       {/* Componente de cambio de tema */}
       <div className="absolute bottom-4 right-4">

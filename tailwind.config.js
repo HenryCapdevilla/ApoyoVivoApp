@@ -34,4 +34,5 @@ module.exports = {
       },
     },
   },
+  safelist: ["backdrop-blur-md", "bg-white/30"],
 }
