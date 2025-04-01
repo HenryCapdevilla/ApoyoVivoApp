@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Home, User, Info, LogIn, UserPlus, Smile, Notebook } from "lucide-react";
+import { Home, User, Info, Smile, Notebook } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -22,16 +22,6 @@ const Navbar = () => {
       <Link to="/emotions" className="flex flex-col items-center text-gray-600 hover:text-blue-500">
         <Smile size={24} />
         <span className="text-xs">Emoción</span>
-      </Link>
-
-      <Link to="/login" className="flex flex-col items-center text-gray-600 hover:text-blue-500">
-        <LogIn size={24} />
-        <span className="text-xs">Login</span>
-      </Link>
-
-      <Link to="/register" className="flex flex-col items-center text-gray-600 hover:text-blue-500">
-        <UserPlus size={24} />
-        <span className="text-xs">Registro</span>
       </Link>
 
       <Link to="/moods-notes" className="flex flex-col items-center text-gray-600 hover:text-blue-500">
