@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { registerRequest, loginRequest, verifyTokenRequest, logoutRequest } from '../api/auth';
 import Cookies from 'js-cookie';
+import { AxiosError } from 'axios';
 
 interface User {
   id: string;
@@ -8,13 +9,18 @@ interface User {
   email: string;
 }
 
+interface UserData {
+  email: string;
+  password: string;
+}
+
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   loading: boolean;
   errors: string[];
-  signup: (user: any) => Promise<void>;
-  signin: (user: any) => Promise<boolean>;
+  signup: (user: UserData) => Promise<void>;
+  signin: (user: UserData) => Promise<boolean>;
   logout: () => Promise<void>;
 }
 
@@ -34,24 +40,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [errors, setErrors] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const signup = async (userData: any) => {
+  const signup = async (userData: UserData) => {
     try {
       const res = await registerRequest(userData);
       setUser(res.data);
       setIsAuthenticated(true);
-    } catch (error: any) {
-      setErrors(Array.isArray(error.response.data) ? error.response.data : [error.response.data]);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        setErrors(Array.isArray(error.response?.data) ? error.response?.data : [error.response?.data]);
+      }
     }
   };
 
-  const signin = async (userData: any) => {
+  const signin = async (userData: UserData) => {
     try {
       const res = await loginRequest(userData);
       setIsAuthenticated(true);
       setUser(res.data);
       return true;
-    } catch (error: any) {
-      setErrors(Array.isArray(error.response.data) ? error.response.data : [error.response.data]);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        setErrors(Array.isArray(error.response?.data) ? error.response?.data : [error.response?.data]);
+      }
       return false;
     }
   };
@@ -64,7 +74,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null);
         setIsAuthenticated(false);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.log("Error al cerrar sesión:", error);
     }
   };
