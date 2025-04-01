@@ -41,21 +41,24 @@ const Register = () => {
       if (axios.isAxiosError(error) && error.response?.data) {
         console.log("Errores del backend:", error.response.data);
   
-        if (Array.isArray(error.response.data)) {
-          // Si el backend devuelve un array de errores, los mapeamos a su campo correspondiente
-          const fieldErrors: { [key: string]: string } = {};
+        const backendErrors = error.response.data;
+        const fieldErrors: { [key: string]: string } = {};
   
-          error.response.data.forEach((msg: string) => {
-            if (msg.toLowerCase().includes("username")) fieldErrors.username = msg;
-            if (msg.toLowerCase().includes("email")) fieldErrors.email = msg;
-            if (msg.toLowerCase().includes("password")) fieldErrors.password = msg;
-          });
-  
+        // Revisar si existe un error general
+        if (backendErrors.general) {
+          setErrors({ general: backendErrors.general });
+        }
+
+        // Iterar sobre los campos y mapear los errores
+        for (const field in backendErrors) {
+          if (Object.prototype.hasOwnProperty.call(backendErrors, field) && field !== 'general') {
+            fieldErrors[field] = backendErrors[field];
+          }
+        }
+
+        // Si hay errores en campos específicos, se actualizan
+        if (Object.keys(fieldErrors).length > 0) {
           setErrors(fieldErrors);
-        } else if (typeof error.response.data === "object") {
-          setErrors(error.response.data);
-        } else {
-          setErrors({ general: "Error en el registro" });
         }
       } else {
         setErrors({ general: "Error en el registro" });
