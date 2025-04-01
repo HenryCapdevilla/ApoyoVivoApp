@@ -29,7 +29,7 @@ const Register = () => {
     setSuccess(null);
   
     try {
-      const res = await axios.post('http://localhost:5000/auth/register', form, {
+      const res = await axios.post('http://apoyovivo.ddns.net:5000/auth/register', form, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
