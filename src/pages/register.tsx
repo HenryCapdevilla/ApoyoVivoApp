@@ -29,7 +29,7 @@ const Register = () => {
     setSuccess(null);
   
     try {
-      const res = await axios.post(`${process.env.VITE_AXIOS_BACKED}/auth/register`, form, {
+      const res = await axios.post(`${import.meta.env.VITE_AXIOS_BACKED}/auth/register`, form, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
